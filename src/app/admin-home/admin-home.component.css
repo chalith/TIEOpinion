@@ -1,0 +1,80 @@
+.content{
+    padding-top: 55px;
+}
+
+.dropdown-menu{
+    background-color: rgb(175, 175, 218);
+}
+
+.navbar-brand{
+    margin: -20px;
+}
+
+.navbar-nav{
+    cursor: pointer;
+}
+    
+.logo-parent {
+    width: 85px;
+    height: 56px;
+    overflow: hidden;
+}
+
+.logo-parent img{
+    left: 5px;
+    width: 80px;
+    position: relative;
+    -webkit-animation-name: animation; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+    animation-name: animation;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+.user{
+    width: 30px;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes animation {
+    0%   {top:-60px;}
+    25%  {top:0px}
+    50%  {top:60px;}
+    75%  {top:0px;}
+    100% {top:-60px;}
+}
+
+/* Standard syntax */
+@keyframes animation {
+    0%   {top:-60px;}
+    25%  {top:0px}
+    50%  {top:60px;}
+    75%  {top:0px;}
+    100% {top:-60px;}
+}
+.navbar{
+    z-index: 4;
+}
+
+@media (min-width: 992px){
+    .dropdown-menu {
+        transition: max-height 1.5s ease;
+        display: block;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        border: none;
+        border-radius: 0;
+        margin-top: -1px;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        max-height: 500px;
+        opacity: 1;
+    }
+
+    .dropdown:hover .nav-link {
+        background-color: rgb(56, 63, 70);
+    }
+}

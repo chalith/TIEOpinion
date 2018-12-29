@@ -1,0 +1,238 @@
+* {
+    box-sizing: border-box;
+}
+
+
+h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #fff;
+}
+
+/* form starting stylings ------------------------------- */
+.group {
+    position: relative;
+    margin-bottom: 35px;
+    text-align:center;
+}
+
+input, password, select {
+    font-size: 18px;
+    padding: 5px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    color: white;
+}
+
+option{
+    color: black;
+}
+
+input, password, select:focus {
+    outline: none;
+}
+
+/* LABEL ======================================= */
+label {
+    color: #fff;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: -25px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label, input:valid ~ label {
+    top: -20px;
+    font-size: 14px;
+    color: #fff;
+}
+
+password:focus ~ label, password:valid ~ label {
+    top: -20px;
+    font-size: 14px;
+    color: #fff;
+}
+
+select:focus ~ label, select:valid ~ label {
+    top: -20px;
+    font-size: 14px;
+    color: #fff;
+}
+
+/* BOTTOM BARS ================================= */
+.bar {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.bar:before, .bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #fff;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.bar:before {
+    left: 50%;
+}
+
+.bar:after {
+    right: 50%;
+}
+
+
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.has-error input, .has-error password, .has-error select{
+    border-bottom: 1px solid rgb(236, 100, 100);
+}
+
+.has-warning input, .has-warning password, .has-warning select{
+    border-bottom: 1px solid rgb(236, 193, 100);
+}
+
+.has-error label{
+    color: rgb(236, 100, 100) !important;
+}
+
+.has-warning label{
+    color: rgb(236, 193, 100) !important;
+}
+
+.alert-invalid{
+    font-size: 10px;
+    color: rgb(236, 100, 100);
+}
+
+.alert-warning{
+    font-size: 10px;
+    color: rgb(236, 193, 100);
+}
+
+/* active state */
+.input:focus ~ .highlight {
+    -webkit-animation: inputHighlighter 0.3s ease;
+    -moz-animation: inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+    from {
+        background: #fff;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@-moz-keyframes inputHighlighter {
+    from {
+        background: #fff;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@keyframes inputHighlighter {
+    from {
+        background: #fff;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+#panel {
+    margin: auto;
+    margin-top: 5vh;
+    width: 75vh;
+    border: 1px solid rgb(200, 200, 200);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 2px;
+    background: -webkit-linear-gradient(90deg, #95b5b5 0%, #9ba6ad 100%);
+    background: rgb(51, 49, 49); /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(90deg, #95b5b5 0%, #9ba6ad 100%); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(90deg, #95b5b5 0%, #9ba6ad 100%); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(90deg, #95b5b5 0%, #9ba6ad 100%); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(90deg, #95b5b5 0%, #9ba6ad 100%); /* Standard syntax (must be last) */
+    
+    padding: 20px;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(194, 189, 189);
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgb(58, 58, 61);
+}
+
+.logo-parent {
+    width: 114px;
+    margin: auto;
+    overflow: hidden;
+    margin-bottom: 21px;
+    margin-top: -42px;
+}
+
+.logo-parent img{
+    width: 114px;
+    position: relative;
+    -webkit-animation-name: animation;
+    -webkit-animation-duration: 4s;
+    -webkit-animation-iteration-count: infinite;
+    animation-name: animation;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes animation {
+    0%   {top:-80px;}
+    25%  {top:0px}
+    50%  {top:80px;}
+    75%  {top:0px;}
+    100% {top:-80px;}
+}
+
+/* Standard syntax */
+@keyframes animation {
+    0%   {top:-80px;}
+    25%  {top:0px}
+    50%  {top:80px;}
+    75%  {top:0px;}
+    100% {top:-80px;}
+}

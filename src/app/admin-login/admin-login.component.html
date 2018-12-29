@@ -1,0 +1,30 @@
+<div id="panel">
+  <div class="container">
+      
+      <h2>Admin Login</h2>
+
+      <form [formGroup]="messageForm" class="message-form" (ngSubmit)="onSubmit(messageForm)">
+
+          <div class="group" [ngClass]="{'has-error':!messageForm.controls['email'].valid && messageForm.controls['email'].touched}">
+              <input class="input" type="text" formControlName="email">
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Email *</label>
+              <div *ngIf="messageForm.controls['email'].hasError('required') && messageForm.controls['email'].touched" class="alert-invalid">Please enter the User Name</div>
+              <div *ngIf="messageForm.controls['email'].hasError('pattern') && !messageForm.controls['email'].hasError('required') && messageForm.controls['password'].touched" class="alert-invalid">The Email you have entered is invalid</div>
+          </div>
+          
+          <div class="group" [ngClass]="{'has-error':!messageForm.controls['password'].valid && messageForm.controls['password'].touched}">
+              <input class="input" type="password" formControlName="password">
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Password *</label>
+              <div *ngIf="messageForm.controls['password'].hasError('required') && messageForm.controls['password'].touched" class="alert-invalid">Please enter the Password</div>
+          </div>
+          <div class="group" [ngClass]="{'has-error':hasError}">
+              <button type="submit" class="btn btn-default center" [disabled]="messageForm.invalid || sending">Send <i *ngIf="sending" class="fa fa-circle-o-notch fa-spin fa-1x fa-fw"></i></button>
+              <div *ngIf="hasError" class="alert-invalid">Invalid login details</div>
+          </div>                
+      </form>
+  </div>
+</div>

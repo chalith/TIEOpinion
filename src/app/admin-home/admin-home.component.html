@@ -1,0 +1,26 @@
+<nav *ngIf="dataLoaded" class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #112738;">
+  <a class="navbar-brand js-scroll-trigger logo-parent" href="#page-top"><img src="{{ logo }}"></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown" *ngFor="let item of navbarItems">
+        <a [routerLink]="item.route" class="nav-link smooth-scroll">{{ item.name }} <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{ user.email }}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" (click)="logout()">Logout</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

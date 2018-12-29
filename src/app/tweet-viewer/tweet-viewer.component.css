@@ -1,0 +1,31 @@
+.aspect-holder{
+    display: inline;
+}
+
+.aspect{
+    float: left;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 2px;
+}
+
+.negative{
+    background-color: rgb(230, 144, 144)
+}
+
+.neutral{
+    background-color: rgb(145, 169, 235)
+}
+
+.positive{
+    background-color: rgb(126, 206, 126)
+}
+
+.center{
+    text-align: center;
+    margin: auto;
+}
+
+.btn{
+    margin: 5px;
+}
