@@ -23,7 +23,7 @@ export class AdminLoginComponent implements OnInit {
     private router: Router,
     private localStorage: LocalStorage) {
     this.messageForm = this.fb.group({
-      email: ['', [Validators.required, Validators.pattern(/^[^ ^\t.]+@[^ ^\t.]+\.[^ ^\t.]+$/)]],
+      email: ['', [Validators.required, Validators.pattern(/^[^ ^\t]+@[^ ^\t.]+\.[^ ^\t.]+$/)]],
       password: ['', [Validators.required] ]
     });
   }
