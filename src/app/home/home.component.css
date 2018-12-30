@@ -18,7 +18,7 @@
 
 .dragdrop .drop{
     padding-top: 2px;
-    height: 230x;
+    height: 230px;
     overflow-x: hidden;
     overflow-y: scroll;
     border: solid rgb(221, 215, 215);
