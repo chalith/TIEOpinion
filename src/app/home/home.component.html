@@ -28,7 +28,7 @@
                 </p-panel>
                 <p-panel header="Aspects" [toggleable]="true" [style]="{'margin-bottom':'10px'}">
                     <div class="row dragdrop">
-                        <p-card class="col-12 col-sm-3 drag">
+                        <p-card class="col-6 col-sm-3 drag">
                             <p-header><h6 style="text-align: center"><b>Keywords</b></h6></p-header>
                             <div class="card dragger" *ngFor="let keyword of tweet.keywords" dnd-draggable [dragEnabled]="true" [dragData]="keyword">
                                 <div class="card-body row">
@@ -38,7 +38,7 @@
                                 </div>
                             </div>  
                         </p-card>
-                        <p-card dnd-droppable class="col-4 col-sm-3 drop negative" (onDropSuccess)="transferDataSuccess($event, tweet, opinion.negative)">
+                        <p-card dnd-droppable class="col-6 col-sm-3 drop negative" (onDropSuccess)="transferDataSuccess($event, tweet, opinion.negative)">
                             <p-header><h6 style="text-align: center"><b>Negative</b></h6></p-header>
                             <div class="card dragger" *ngFor="let keyword of tweet.sentiment.negative">
                                 <div class="card-body row">
@@ -50,7 +50,7 @@
                                 </div>
                             </div>
                         </p-card>
-                        <p-card dnd-droppable class="col-4 col-sm-3 drop neutral" (onDropSuccess)="transferDataSuccess($event, tweet, opinion.neutral)">
+                        <p-card dnd-droppable class="col-6 col-sm-3 drop neutral" (onDropSuccess)="transferDataSuccess($event, tweet, opinion.neutral)">
                             <p-header><h6 style="text-align: center"><b>Neutral</b></h6></p-header>
                             <div class="card dragger" *ngFor="let keyword of tweet.sentiment.neutral">
                                 <div class="card-body row">
@@ -62,7 +62,7 @@
                                 </div>
                             </div>
                         </p-card>
-                        <p-card dnd-droppable class="col-4 col-sm-3 drop positive" (onDropSuccess)="transferDataSuccess($event, tweet, opinion.positive)">
+                        <p-card dnd-droppable class="col-6 col-sm-3 drop positive" (onDropSuccess)="transferDataSuccess($event, tweet, opinion.positive)">
                             <p-header><h6 style="text-align: center"><b>Positive</b></h6></p-header>
                             <div class="card dragger" dnd-droppable *ngFor="let keyword of tweet.sentiment.positive" (onDropSuccess)="extendWord($event, keyword, tweet, opinion.positive)">
                                 <div class="card-body row">
