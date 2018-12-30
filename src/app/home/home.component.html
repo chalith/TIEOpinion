@@ -15,7 +15,7 @@
         </div>
     </p-panel>    
     <div *ngIf="editData">
-        <p-carousel headerText="Tweets" [numVisible]="1" [value]="tweets" [style]="{'margin-bottom':'100px'}">
+        <p-carousel headerText="Tweets" [numVisible]="1" [value]="tweets" [firstVisible]="selectedIndex" [pageLinks]="10" [style]="{'margin-bottom':'100px'}" (onPage)="pageChange($event)">
             <ng-template let-tweet pTemplate="item">
                 <p-panel header="Tweet {{ int(tweet.field1) + 1 }}" [toggleable]="true" [style]="{'margin-bottom':'10px'}">
                     <p-message severity="info" text="{{ message }}"></p-message>
@@ -74,11 +74,11 @@
                     </div>
                 </p-panel>
                 <div class="col-md-12 center">
-                    <span class="pointer-items" *ngFor="let item of completed">
-                        <i *ngIf="item" class="complete fa fa-arrow-circle-right fa-2x"></i>
-                        <i *ngIf="!item" class="incomplete fa fa-arrow-circle-right fa-2x"></i>
+                    <span class="pointer-items" *ngFor="let item of completed; let i = index">
+                        <i *ngIf="item" class="page-pointer complete fa fa-arrow-circle-right fa-2x" [ngClass]="selectedIndex ==  i? 'selected' : ''" (click)="selectPage(i)"></i>
+                        <i *ngIf="!item" class="page-pointer incomplete fa fa-arrow-circle-right fa-2x" [ngClass]="selectedIndex ==  i? 'selected' : ''" (click)="selectPage(i)"></i>
                     </span><br>
-                    <button type="button" class="btn btn-primary" (click)="setAspect(int(tweet.field1))">Submit</button>
+                    <button type="button" class="btn btn-primary" [disabled]="sending" (click)="setAspect(int(tweet.field1))">Submit <i *ngIf="sending" class="fa fa-circle-o-notch fa-spin fa-1x fa-fw"></i></button>
                     <div *ngIf="int(tweet.field1) == tweets.length - 1">
                         <p-message *ngIf="!isComplete" severity="warn" text="Submit all the tweets before complete the submission"></p-message><br>
                         <button type="button" class="btn btn-primary" [disabled]="!isComplete || sending" (click)="submit()">Submit all and finish <i *ngIf="sending" class="fa fa-circle-o-notch fa-spin fa-1x fa-fw"></i></button>

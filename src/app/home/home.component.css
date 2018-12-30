@@ -74,3 +74,12 @@
 .completed-fa{
     color: #69d869;
 }
+
+.selected{
+    border-radius: 56px;
+    border: solid #9997ae;
+}
+
+.page-pointer{
+    cursor: pointer;
+}

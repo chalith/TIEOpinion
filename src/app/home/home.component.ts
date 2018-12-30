@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
   confirmMessage = false;
   editData = false;
   sending = false;
+  selectedIndex = 0;
 
   ngOnInit() {
     this.getLocalStorage(()=>{
@@ -98,14 +99,21 @@ export class HomeComponent implements OnInit {
   }
   
   setAspect(index){
+    this.sending = true;
     this.completed[index] = true;
     this.setIsComplete();
+    if(index < this.tweets.length-1)
+      this.selectPage(this.selectedIndex+1);
+    setTimeout(()=>{
+      this.sending = false;
+    }, 200);
   }
 
   submitAll(){
     this.tweetService.saveTweets({insertId: this.insertId, filepath: this.filePath, tweets: this.tweets}).subscribe(data=>{
       this.insertId = data['create_id'];
       this.editData = false;
+      this.selectedIndex = 0;
       this.setLocalStorage();
       this.hideConfirmMessage();
       this.sending = false;
@@ -153,6 +161,18 @@ export class HomeComponent implements OnInit {
 
   editSubmitted(){
     this.editData = true;
+  }
+
+  pageChange(event){
+    this.selectedIndex = event.page;
+  }
+
+  selectPage(index){
+    this.dataLoaded = false;
+    this.selectedIndex = index;
+    setTimeout(()=>{
+      this.dataLoaded = true;
+    });
   }
 
   arrayExist(arr, value) {
