@@ -31,6 +31,9 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.getLocalStorage(()=>{
       if(!this.insertId){
+        this.editData = true;
+      }
+      if(!this.tweets){
         this.tweets = [];
         this.completed = [];
         this.tweetService.getTweets().subscribe(data=>{
@@ -41,10 +44,10 @@ export class HomeComponent implements OnInit {
             this.completed.push(false);
             if(index == data['tweets'].length - 1){
               this.dataLoaded = true;
+              this.setLocalStorage();
             }
           });
         });
-        this.editData = true;
       }
       else{
         this.dataLoaded = true;

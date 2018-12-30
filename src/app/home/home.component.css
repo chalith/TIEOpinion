@@ -47,6 +47,10 @@
     min-height: 100%;
 }
 
+.drag ::ng-deep .ui-card{
+    min-height: 100%;
+}
+
 :host ::ng-deep .ui-card{
     background-color: #f5f1f1;
 }
