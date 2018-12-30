@@ -4,6 +4,9 @@
         <div class="col-md-12 center spinner">
             <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
         </div>
+        <div *ngIf="showEmpty" class="col-md-12 center">
+            <p-message severity="info" text="No tweets found"></p-message>
+        </div>    
     </div>
 </p-panel>
 <div *ngIf="dataLoaded">

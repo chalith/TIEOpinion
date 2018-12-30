@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
   editData = false;
   sending = false;
   selectedIndex = 0;
+  showEmpty = false;
 
   ngOnInit() {
     this.getLocalStorage(()=>{
@@ -38,16 +39,21 @@ export class HomeComponent implements OnInit {
         this.tweets = [];
         this.completed = [];
         this.tweetService.getTweets().subscribe(data=>{
-          this.filePath = data['filepath'];
-          data['tweets'].forEach((tweet, index) => {
-            tweet['sentiment'] = {negative: [], neutral: [], positive: []};
-            this.tweets.push(tweet);
-            this.completed.push(false);
-            if(index == data['tweets'].length - 1){
-              this.dataLoaded = true;
-              this.setLocalStorage();
-            }
-          });
+          if(data['err']){
+            this.showEmpty = true;
+          }
+          else{
+            this.filePath = data['filepath'];
+            data['tweets'].forEach((tweet, index) => {
+              tweet['sentiment'] = {negative: [], neutral: [], positive: []};
+              this.tweets.push(tweet);
+              this.completed.push(false);
+              if(index == data['tweets'].length - 1){
+                this.dataLoaded = true;
+                this.setLocalStorage();
+              }
+            });
+          }
         });
       }
       else{
