@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiPath: "https://tieapi.herokuapp.com",
-  appPath: "https://tieopinion.firebaseapp.com",
+  apiPath: "https://tie-api.herokuapp.com",
+  appPath: "https://tieopinion-fe02d.firebaseapp.com",
   serviceName: "TIEOpinion"
 };
